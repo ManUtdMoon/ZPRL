@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Z-Perturbation RL enables efficient policy steering and smooth robot actions through a bottleneck latent interface of the base policy.">
+  <meta name="keywords" content="Robotic Manipulation, Reinforcement Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beyond Action Residuals</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Beyond Action Residuals:<br><span style="font-size: 0.8em;">Real-World Robot Policy <span style="color: #c66a42;">Steering</span> via <span style="color: #c66a42;">Bottleneck Latent Reinforcement Learning</span></span></h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://manutdmoon.github.io">Dongjie Yu</a><sup>*,1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://lei-kun.github.io">Kun Lei</a><sup>*,2,3</sup>,</span>
+            <span class="author-block">
+              <a href="https://jzndd.github.io">Zhennan Jiang</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.ai.hku.hk/people/academic-staff/jpan">Jia Pan</a><sup>#,1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://hxu.rocks/">Huazhe Xu</a><sup>#,2,5</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+            <span class="author-block"><sup>#</sup>Corresponding authors</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>CDS HKU,</span>
+            <span class="author-block"><sup>2</sup>SQZ,</span>
+            <span class="author-block"><sup>3</sup>SJTU,</span>
+            <span class="author-block"><sup>4</sup>Institute of Automation, CAS,</span>
+            <span class="author-block"><sup>5</sup>IIIS, THU</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/manutdmoon/ZPRL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/ManUtdMoon/robomimicv030"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+              <!-- Checkpoint Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/ManUtdMoon/models"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-file"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="./static/images/overview.png" alt="Overview" />
+      <h2 class="subtitle has-text-centered">
+        <span class="zprl">Zprl</span> enables efficient policy steering and smooth robot actions through a bottleneck latent interface of the base policy from imitation.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+    <!-- Abstract. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths abstract-panel">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Pretrained imitation policies have become a strong foundation for robot manipulation, but they often require online improvement to overcome execution errors, limited dataset coverage, and deployment mismatch. A central question is therefore how reinforcement learning (RL) should adapt policies after offline pretraining.
+          </p>
+          <p>          
+            Existing lightweight methods commonly apply residual corrections directly in action space, but this often leads to noisy and poorly structured exploration. In this work, we propose Z-Perturbation Reinforcement Learning (ZPRL), an RL adaptation approach that steers pretrained policies through a compact bottleneck latent rather than through policy weights or output actions.
+          </p>
+          <p>
+            During offline training, we augment the policy with a plug-and-play variational information bottleneck (VIB) module to extract a task-relevant latent interface from observation embeddings. During online finetuning, the base policy is frozen and RL learns only a residual perturbation on this latent, whose decoded representation conditions the frozen action generator. We instantiate ZPRL on flow-matching policies and evaluate it on eight simulation tasks and three real-world tasks. Across diverse manipulation settings, ZPRL improves both sample efficiency and final performance over strong post-training baselines. In the real world, under the same interaction budget, ZPRL achieves an average success-rate gain of 9.2\% over an action-residual counterpart, while producing smoother and more coherent behaviors. These results suggest that a compact, task-aligned bottleneck latent provides an effective interface for online RL adaptation.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section" id="RealWorldTasks">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Real-world Tasks</h2>
+
+    <!-- Main results. -->
+    <h3 class="title is-4">Main results</h3>
+    <div class="content has-text-justified">
+      <p>
+        We report main real-world manipulation results to evaluate performance gains under a fixed
+        interaction budget.
+      </p>
+    </div>
+    <!--/ Main results. -->
+  </div>
+</section>
+
+
+<section class="section" id="Simulation">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Simulation</h2>
+
+    <!-- Main results. -->
+    <h3 class="title is-4">Main results</h3>
+    <div class="content has-text-justified">
+      <p>
+        ZPRL finetunes a base flow policy with high sample efficiency and reaches superior final performance across eight tasks from three benchmarks. All base policies are trained on the same offline dataset per task, a mixed-quality dataset consisting 50 or 100 trajectories.
+      </p>
+    </div>
+    <div class="content has-text-centered">
+      <img id="replay-video" src="./static/images/sim_main.png" alt="Simulation main results" width="100%" />
+    </div>
+    <!--/ Main results. -->
+
+    <!-- Ablation. -->
+    <h3 class="title is-4">Ablation</h3>
+    <div class="content has-text-justified">
+      <p>
+        We ablate key design choices of ZPRL, including whether the bottleneck is used, the perturbation scale &lambda;, the dimension of z, and the offline data size.
+      </p>
+      <img id="replay-video" src="./static/images/sim_ablation.png" alt="Simulation ablation results" width="100%" />
+      <p class="takeaway">Takeaway:</p>
+      <ul>
+        <li>A compact, task-relevant bottleneck latent matters.</li>
+        <li>&lambda; must be large enough to steer, but small enough to stay local.</li>
+        <li>More offline data gives RL a better latent manifold to exploit.</li>
+        <li>ZPRL improves adaptation while preserving the frozen action prior.</li>
+      </ul>
+    </div>
+    <!--/ Ablation. -->
+
+    <!-- Analysis. -->
+    <h3 class="title is-4">What is ZPRL doing?</h3>
+    <div class="content has-text-justified">
+      <p>We visualize how ZPRL changes decoded features and actions during online RL using UMAP, and quantify how larger perturbation scales &lambda; push the latent and the feature further out of distribution.</p>
+      <img id="replay-video" src="./static/images/umap.png" alt="Simulation umap analysis" width="100%" />
+      <p class="takeaway">Takeaway:</p>
+      <ul>
+        <li>ZPRL mainly remaps state-action associations instead of inventing new ones.</li>
+        <li>Larger &lambda; produces stronger steering.</li>
+        <li>Too large &lambda; pushes the latent out of distribution.</li>
+        <li>Good performance comes from strong but still local steering.</li>
+      </ul>
+    </div>
+    <!--/ Analysis. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="RelatedLinks">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">Related Links</h2>
+    <p>
+      Our work has drawn inspiration from the following wonderful projects.
+    </p>
+    <p>
+      <a href="https://diffusion-policy.cs.columbia.edu">Diffusion Policy</a> adopts diffusion models to capture the complex distribution of observation-action pairs in robot datasets.
+    </p>
+    <p>
+      <a href="https://lei-kun.github.io/RL-100">SOE</a> leverages VIB in iterative imitation learning to constrain the exploration on the manifold of valid actions.
+    </p>
+    <p>
+      <a href="https://policydecorator.github.io">Policy Decorator</a> introduces a strong residual RL approach with progressive exploration and control scale.
+    </p>
+    <p>
+      <a href="https://lei-kun.github.io/RL-100">RL-100</a> builds a real-world RL system achieving performant robotic manipulation on several challenging tasks.
+    </p>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/manutdmoon" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

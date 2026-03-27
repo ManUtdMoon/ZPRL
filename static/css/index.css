@@ -76,7 +76,7 @@ body {
 
 .realworld-demo-title,
 .realworld-eval-title {
-  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
   text-align: center;
   font-weight: 600;
 }
@@ -195,6 +195,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.evaluation-training-row {
+  margin-top: 1.5rem;
+}
+
+.evaluation-training-card {
+  text-align: center;
+}
+
+.evaluation-training-image {
+  display: block;
+  width: 88%;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
 }
 
 .publication-body img {

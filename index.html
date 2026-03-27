@@ -150,7 +150,7 @@
     <div class="hero-body">
       <img id="teaser" src="./static/images/overview.png" alt="Overview" />
       <h2 class="subtitle has-text-centered">
-        <span class="zprl">Zprl</span> enables efficient policy steering and smooth robot actions through a bottleneck latent interface of the base policy from imitation.
+        ZPRL enables efficient policy steering and smooth robot actions through a bottleneck latent interface of the base policy learned from imitation.
       </h2>
     </div>
   </div>
@@ -196,23 +196,22 @@
 
 <section class="section" id="RealWorldTasks">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Real-world Tasks</h2>
+    <h2 class="title is-3 has-text-centered">Real-World Tasks</h2>
 
     <!-- Main results. -->
-    <h3 class="title is-4">Main results</h3>
+    <!-- <h3 class="title is-4">Main results</h3> -->
     <div class="content has-text-justified">
       <p>
-        We report main real-world manipulation results to evaluate performance gains under a fixed
-        interaction budget.
+        We run ZPRL on three real-world tasks: <code>place orange</code>, <code>flip egg</code>, and <code>open box</code>, as well as some variants of these tasks for robustness tests.
       </p>
     </div>
     <!--/ Main results. -->
 
     <!-- Deployment demos. -->
-    <h3 class="title is-4">Deployment Demo</h3>
+    <h3 class="title is-4">Deployment Demos</h3>
     <div class="content has-text-justified">
       <p>
-        We present two longer real-world deployment demos to showcase the full task execution in realistic settings, including cooking a raw egg before flipping it and opening a box to retrieve the flower inside.
+        We present two longer real-world deployment demos to showcase the full task execution in realistic settings, including cooking a raw egg before flipping it and opening a box to retrieve the flower inside. Both videos are included in the teaser video above.
       </p>
     </div>
     <div class="columns is-variable is-4 realworld-demo-row">
@@ -241,35 +240,52 @@
     <h3 class="title is-4">Evaluation</h3>
     <div class="content has-text-justified">
       <p>
-        We evaluate the three real-world tasks over 40 trials and show representative rollouts below to illustrate task completion in deployment.
+        We evaluate the three tasks over 40 trials per task and show representative rollouts as well as training curves below to illustrate policy performance.
       </p>
     </div>
     <div class="columns is-variable is-4 realworld-eval-row">
       <div class="column">
         <div class="realworld-eval-card">
+          <p class="realworld-eval-title">(a) Place Orange</p>
           <div class="publication-video">
             <iframe src="https://www.youtube.com/embed/yhIcyL9fnNw?rel=0&amp;showinfo=0"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
-          <p class="realworld-eval-title">(a) Place Orange</p>
         </div>
       </div>
       <div class="column">
         <div class="realworld-eval-card">
+          <p class="realworld-eval-title">(b) Flip Egg</p>
           <div class="publication-video">
             <iframe src="https://www.youtube.com/embed/5EuRr1njHC4?rel=0&amp;showinfo=0"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
-          <p class="realworld-eval-title">(b) Flip Egg</p>
         </div>
       </div>
       <div class="column">
         <div class="realworld-eval-card">
+          <p class="realworld-eval-title">(c) Open Box</p>
           <div class="publication-video">
             <iframe src="https://www.youtube.com/embed/vdcftcbAhXE?rel=0&amp;showinfo=0"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
-          <p class="realworld-eval-title">(c) Open Box</p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-variable is-4 evaluation-training-row">
+      <div class="column">
+        <div class="evaluation-training-card">
+          <img src="./static/images/train_juicing.jpg" alt="Training curve for Place Orange" class="evaluation-training-image">
+        </div>
+      </div>
+      <div class="column">
+        <div class="evaluation-training-card">
+          <img src="./static/images/train_flip.jpg" alt="Training curve for Flip Egg" class="evaluation-training-image">
+        </div>
+      </div>
+      <div class="column">
+        <div class="evaluation-training-card">
+          <img src="./static/images/train_box.jpg" alt="Training curve for Open Box" class="evaluation-training-image">
         </div>
       </div>
     </div>
@@ -285,24 +301,24 @@
     <div class="columns is-variable is-6 robustness-grid">
       <div class="column">
         <div class="robustness-card">
-          <h4 class="robustness-task-title">Box</h4>
+          <h4 class="robustness-task-title">Place Orange</h4>
           <div class="robustness-item">
             <p class="robustness-label">Disturbance</p>
             <video class="robustness-video" controls playsinline preload="metadata">
-              <source src="./demo/box_disturb-1.mp4" type="video/mp4">
+              <source src="./demo/juice_disturb-1.mp4" type="video/mp4">
             </video>
           </div>
           <div class="robustness-item">
-            <p class="robustness-label">OOD Position</p>
+            <p class="robustness-label">Model Variation</p>
             <video class="robustness-video" controls playsinline preload="metadata">
-              <source src="./demo/box_ood_pos-1.mp4" type="video/mp4">
+              <source src="./demo/juice_model-1.mp4" type="video/mp4">
             </video>
           </div>
         </div>
       </div>
       <div class="column">
         <div class="robustness-card">
-          <h4 class="robustness-task-title">Flip</h4>
+          <h4 class="robustness-task-title">Flip Egg</h4>
           <div class="robustness-item">
             <p class="robustness-label">Color Robustness</p>
             <video class="robustness-video" controls playsinline preload="metadata">
@@ -319,17 +335,17 @@
       </div>
       <div class="column">
         <div class="robustness-card">
-          <h4 class="robustness-task-title">Juice</h4>
+          <h4 class="robustness-task-title">Open Box</h4>
           <div class="robustness-item">
             <p class="robustness-label">Disturbance</p>
             <video class="robustness-video" controls playsinline preload="metadata">
-              <source src="./demo/juice_disturb-1.mp4" type="video/mp4">
+              <source src="./demo/box_disturb-1.mp4" type="video/mp4">
             </video>
           </div>
           <div class="robustness-item">
-            <p class="robustness-label">Model Variation</p>
+            <p class="robustness-label">OOD Position</p>
             <video class="robustness-video" controls playsinline preload="metadata">
-              <source src="./demo/juice_model-1.mp4" type="video/mp4">
+              <source src="./demo/box_ood_pos-1.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -345,10 +361,10 @@
     <h2 class="title is-3 has-text-centered">Simulation</h2>
 
     <!-- Main results. -->
-    <h3 class="title is-4">Main results</h3>
+    <h3 class="title is-4">Main Results</h3>
     <div class="content has-text-justified">
       <p>
-        ZPRL finetunes a base flow policy with high sample efficiency and reaches superior final performance across eight tasks from three benchmarks. All base policies are trained on the same offline dataset per task, a mixed-quality dataset consisting 50 or 100 trajectories.
+        ZPRL finetunes a base flow policy with high sample efficiency and reaches competitive or superior final performance across eight tasks from three benchmarks. All base policies are trained on the same offline dataset per task, a mixed-quality dataset consisting of 50 or 100 trajectories.
       </p>
     </div>
     <div class="content has-text-centered">
@@ -374,7 +390,7 @@
     <!--/ Ablation. -->
 
     <!-- Analysis. -->
-    <h3 class="title is-4">What is ZPRL doing?</h3>
+    <h3 class="title is-4">What is ZPRL Doing?</h3>
     <div class="content has-text-justified">
       <p>We visualize how ZPRL changes decoded features and actions during online RL using UMAP, and quantify how larger perturbation scales &lambda; push the latent and the feature further out of distribution.</p>
       <img id="replay-video" src="./static/images/umap.png" alt="Simulation umap analysis" width="100%" />
@@ -402,7 +418,7 @@
       <a href="https://diffusion-policy.cs.columbia.edu">Diffusion Policy</a> adopts diffusion models to capture the complex distribution of observation-action pairs in robot datasets.
     </p>
     <p>
-      <a href="https://lei-kun.github.io/RL-100">SOE</a> leverages VIB in iterative imitation learning to constrain the exploration on the manifold of valid actions.
+      <a href="https://ericjin2002.github.io/SOE">SOE</a> leverages VIB in iterative imitation learning to constrain the exploration on the manifold of valid actions.
     </p>
     <p>
       <a href="https://policydecorator.github.io">Policy Decorator</a> introduces a strong residual RL approach with progressive exploration and control scale.

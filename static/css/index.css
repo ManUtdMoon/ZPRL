@@ -61,6 +61,62 @@ body {
   margin-top: 2rem;
 }
 
+.realworld-eval-row {
+  margin-top: 0.5rem;
+}
+
+.realworld-demo-row {
+  margin-top: 0.5rem;
+}
+
+.realworld-demo-card,
+.realworld-eval-card {
+  height: 100%;
+}
+
+.realworld-demo-title,
+.realworld-eval-title {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.robustness-grid {
+  margin-top: 0.5rem;
+}
+
+.robustness-card {
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.robustness-task-title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.2rem;
+}
+
+.robustness-item + .robustness-item {
+  margin-top: 1.25rem;
+}
+
+.robustness-label {
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.robustness-video {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  background: #000;
+}
+
 
 .publication-title {
 }

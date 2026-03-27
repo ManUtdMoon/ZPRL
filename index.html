@@ -165,7 +165,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+          <iframe src="https://www.youtube.com/embed/2cxb1iWx6ho?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -207,6 +207,135 @@
       </p>
     </div>
     <!--/ Main results. -->
+
+    <!-- Deployment demos. -->
+    <h3 class="title is-4">Deployment Demo</h3>
+    <div class="content has-text-justified">
+      <p>
+        We present two longer real-world deployment demos to showcase the full task execution in realistic settings, including cooking a raw egg before flipping it and opening a box to retrieve the flower inside.
+      </p>
+    </div>
+    <div class="columns is-variable is-4 realworld-demo-row">
+      <div class="column">
+        <div class="realworld-demo-card">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/Gb63fYcYYQ8?rel=0&amp;showinfo=0"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <p class="realworld-demo-title">(a) Flip Egg in a Real Kitchen</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="realworld-demo-card">
+          <div class="publication-video">
+            <iframe src="demo/flower.mp4"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <p class="realworld-demo-title">(b) Open Box and Retrieve Flower</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Deployment demos. -->
+
+    <!-- Evaluation videos. -->
+    <h3 class="title is-4">Evaluation</h3>
+    <div class="content has-text-justified">
+      <p>
+        We evaluate the three real-world tasks over 40 trials and show representative rollouts below to illustrate task completion in deployment.
+      </p>
+    </div>
+    <div class="columns is-variable is-4 realworld-eval-row">
+      <div class="column">
+        <div class="realworld-eval-card">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/yhIcyL9fnNw?rel=0&amp;showinfo=0"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <p class="realworld-eval-title">(a) Place Orange</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="realworld-eval-card">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/5EuRr1njHC4?rel=0&amp;showinfo=0"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <p class="realworld-eval-title">(b) Flip Egg</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="realworld-eval-card">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/vdcftcbAhXE?rel=0&amp;showinfo=0"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <p class="realworld-eval-title">(c) Open Box</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Evaluation videos. -->
+
+    <!-- Robustness tests. -->
+    <h3 class="title is-4">Robustness Tests</h3>
+    <div class="content has-text-justified">
+      <p>
+        We further evaluate robustness under task-specific perturbations. Each task is paired with two stress tests to reveal whether the policy remains stable under distribution shifts and external disturbances.
+      </p>
+    </div>
+    <div class="columns is-variable is-6 robustness-grid">
+      <div class="column">
+        <div class="robustness-card">
+          <h4 class="robustness-task-title">Box</h4>
+          <div class="robustness-item">
+            <p class="robustness-label">Disturbance</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/box_disturb-1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="robustness-item">
+            <p class="robustness-label">OOD Position</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/box_ood_pos-1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="robustness-card">
+          <h4 class="robustness-task-title">Flip</h4>
+          <div class="robustness-item">
+            <p class="robustness-label">Color Robustness</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/flip_color_robustness-1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="robustness-item">
+            <p class="robustness-label">Disturbance</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/flip_disturb-1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="robustness-card">
+          <h4 class="robustness-task-title">Juice</h4>
+          <div class="robustness-item">
+            <p class="robustness-label">Disturbance</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/juice_disturb-1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="robustness-item">
+            <p class="robustness-label">Model Variation</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/juice_model-1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Robustness tests. -->
   </div>
 </section>
 

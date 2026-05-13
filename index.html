@@ -6,7 +6,7 @@
         content="Z-Perturbation RL enables efficient policy steering and smooth robot actions through a bottleneck latent interface of the base policy.">
   <meta name="keywords" content="Robotic Manipulation, Reinforcement Learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Beyond Action Residuals</title>
+  <title>Beyond Action Residuals - ZPRL</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script>
@@ -98,7 +98,7 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://www.youtube.com/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -106,7 +106,7 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/manutdmoon/ZPRL"
@@ -148,7 +148,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" src="./static/images/overview.png" alt="Overview" />
+      <img id="teaser" src="./static/images/overview.jpg" alt="Overview" />
       <h2 class="subtitle has-text-centered">
         ZPRL enables efficient policy steering and smooth robot actions through a bottleneck latent interface of the base policy learned from imitation.
       </h2>
@@ -202,7 +202,7 @@
     <!-- <h3 class="title is-4">Main results</h3> -->
     <div class="content has-text-justified">
       <p>
-        We run ZPRL on three real-world tasks: <code>place orange</code>, <code>flip egg</code>, and <code>open box</code>, as well as some variants of these tasks for robustness tests.
+        We run ZPRL on four real-world tasks: <code>place orange</code>, <code>flip egg</code>, <code>open box</code>, and <code>insert bills</code>, as well as some variants of these tasks for robustness tests.
       </p>
     </div>
     <!--/ Main results. -->
@@ -211,14 +211,14 @@
     <h3 class="title is-4">Deployment Demos</h3>
     <div class="content has-text-justified">
       <p>
-        We present two longer real-world deployment demos to showcase the full task execution in realistic settings, including cooking a raw egg before flipping it and opening a box to retrieve the flower inside. Both videos are included in the teaser video above.
+        We present three longer real-world deployment demos to showcase the full task execution in realistic settings, including cooking a raw egg before flipping it, opening a box to retrieve the flower inside, and inserting paper bills into a wallet. These videos are included in the teaser video above.
       </p>
     </div>
     <div class="columns is-variable is-4 realworld-demo-row">
       <div class="column">
         <div class="realworld-demo-card">
           <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/Gb63fYcYYQ8?rel=0&amp;showinfo=0"
+            <iframe src="https://www.youtube.com/embed/pYiUzNFlv-Y?rel=0&amp;showinfo=0"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
           <p class="realworld-demo-title">(a) Flip Egg in a Real Kitchen</p>
@@ -227,10 +227,21 @@
       <div class="column">
         <div class="realworld-demo-card">
           <div class="publication-video">
-            <iframe src="demo/flower.mp4"
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <video controls playsinline preload="metadata">
+              <source src="demo/flower.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="realworld-demo-title">(b) Open Box and Retrieve Flower</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="realworld-demo-card">
+          <div class="publication-video">
+            <video controls playsinline preload="metadata">
+              <source src="demo/wallet-teaser.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="realworld-demo-title">(c) Insert Bills after Disturbance</p>
         </div>
       </div>
     </div>
@@ -240,7 +251,7 @@
     <h3 class="title is-4">Evaluation</h3>
     <div class="content has-text-justified">
       <p>
-        We evaluate the three tasks over 40 trials per task and show representative rollouts as well as training curves below to illustrate policy performance.
+        We evaluate the four tasks over 40 trials per task and show representative rollouts as well as training curves below to illustrate policy performance.
       </p>
     </div>
     <div class="columns is-variable is-4 realworld-eval-row">
@@ -271,6 +282,15 @@
           </div>
         </div>
       </div>
+      <div class="column">
+        <div class="realworld-eval-card">
+          <p class="realworld-eval-title">(d) Insert Bills</p>
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/DKosJRtN_NM?rel=0&amp;showinfo=0"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="columns is-variable is-4 evaluation-training-row">
       <div class="column">
@@ -286,6 +306,11 @@
       <div class="column">
         <div class="evaluation-training-card">
           <img src="./static/images/train_box.jpg" alt="Training curve for Open Box" class="evaluation-training-image">
+        </div>
+      </div>
+      <div class="column">
+        <div class="evaluation-training-card">
+          <img src="./static/images/train_wallet.jpg" alt="Training curve for Insert Bills" class="evaluation-training-image">
         </div>
       </div>
     </div>
@@ -346,6 +371,23 @@
             <p class="robustness-label">OOD Position</p>
             <video class="robustness-video" controls playsinline preload="metadata">
               <source src="./demo/box_ood_pos-1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="robustness-card">
+          <h4 class="robustness-task-title">Insert Bills</h4>
+          <div class="robustness-item">
+            <p class="robustness-label">Distractors</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/wallet-distractor.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="robustness-item">
+            <p class="robustness-label">Disturbance</p>
+            <video class="robustness-video" controls playsinline preload="metadata">
+              <source src="./demo/wallet-disturbance.mp4" type="video/mp4">
             </video>
           </div>
         </div>

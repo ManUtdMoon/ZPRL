@@ -1,4 +1,4 @@
-# Beyond Action Residuals: Steering Robot Manipulation Policies with Bottleneck Latent Reinforcement Learning (ZPRL)
+# Beyond Action Residuals: Real-World Robot Policy Steering via Bottleneck Latent Reinforcement Learning (ZPRL)
 
 [Dongjie Yu](https://manutdmoon.github.io/)<sup>&#42;,1,2</sup>,
 [Kun Lei](https://lei-kun.github.io/)<sup>&#42;,2,3</sup>,
